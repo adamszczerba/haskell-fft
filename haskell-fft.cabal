@@ -1,0 +1,82 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 92e725cca52a2b3b0db1f2f03c35b2dcc55663f632bb25da33946c68ccb989b7
+
+name:           haskell-fft
+version:        0.1.0.0
+homepage:       https://github.com/adamszczerba/haskell-fft#readme
+bug-reports:    https://github.com/adamszczerba/haskell-fft/issues
+author:         Kamil Jarosz, Adam Szczerba
+copyright:      2017 Kamil Jarosz, Adam Szczerba
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+source-repository head
+  type: git
+  location: https://github.com/adamszczerba/haskell-fft
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      GLUT
+    , HUnit
+    , OpenGL
+    , QuickCheck
+    , WAVE
+    , base >=4.7 && <5
+    , pure-fft
+    , unix
+  exposed-modules:
+      Config
+      GUI
+      Queue
+      Sound
+  other-modules:
+      Paths_haskell_fft
+  default-language: Haskell2010
+
+executable haskell-fft-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      GLUT
+    , HUnit
+    , OpenGL
+    , QuickCheck
+    , WAVE
+    , base >=4.7 && <5
+    , haskell-fft
+    , pure-fft
+    , unix
+  other-modules:
+      Paths_haskell_fft
+  default-language: Haskell2010
+
+test-suite haskell-fft-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      GLUT
+    , HUnit
+    , OpenGL
+    , QuickCheck
+    , WAVE
+    , base >=4.7 && <5
+    , haskell-fft
+    , pure-fft
+    , unix
+  other-modules:
+      QuickChecks
+      UnitTests
+      Paths_haskell_fft
+  default-language: Haskell2010

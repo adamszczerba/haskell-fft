@@ -1,0 +1,41 @@
+name:                haskell-fft
+version:             0.1.0.0
+github:              "adamszczerba/haskell-fft"
+license:             BSD3
+author:              "Kamil Jarosz, Adam Szczerba"
+copyright:           "2017 Kamil Jarosz, Adam Szczerba"
+
+dependencies:
+- base >= 4.7 && < 5
+- OpenGL
+- GLUT
+- unix
+- pure-fft
+- WAVE
+- HUnit
+- QuickCheck
+
+library:
+  source-dirs: src
+
+executables:
+  haskell-fft-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-fft
+
+tests:
+  haskell-fft-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - haskell-fft
